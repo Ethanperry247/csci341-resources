@@ -1,0 +1,73 @@
+{
+    "helpers": [
+        {
+            "title": "Links to Resources",
+            "content": [
+                "<a href='greencard.pdf' target='_blank'>MIPS Greencard</a>",
+                "<a href='https://elearning.mines.edu/courses/29129' target='_blank'>Section AB Course Page</a>",
+                "<a href='https://elearning.mines.edu/courses/29126' target='_blank'>Section C Course Page</a>",
+                "<a href='https://piazza.com/class/kj06zdiqmdx43h' target='_blank'>Piazza</a>",
+                "<a href='https://discord.gg/xadaPzps' target='_blank'>Course Discord Invite</a>",
+                "<a href='https://learn.zybooks.com/zybook/MINESCSCI341HanSpring2021' target='_blank'>Section AB Zybook</a>",
+                "<a href='https://learn.zybooks.com/zybook/MINESCSCI341ReadSpring2021' target='_blank'>Section C Zybook</a>",
+                "<a href='http://courses.missouristate.edu/kenvollmar/mars/' target='_blank'>MARS Download</a>"
+            ]
+        },
+        {
+            "title": "Common Pitfalls",
+            "content": [
+                "<strong>Word Offsetting</strong> Don't forget to offset by a factor of 4 when trying to access a word (i.e. lw $s0, 4($t0) instead of lw $s0, 1($t0)).",
+                "<strong>Use Immediate Offsets</strong> Don't use a register as an offset: lw $s0, $s1($t0) is not allowed.",
+                "<strong>Infinite Loops</strong> Make sure that the proper condition will be met to branch in a loop.",
+                "<strong>Running Into Branches Unintentionally</strong> If you have a branch in your program, make sure to jump over any other branches so that they are not all executed.",
+                "<strong>Signed vs Unsigned</strong> MIPS arithmetic instructions are working with signed numbers unless there is a 'u' at the end of the command (addi vs addiu)."
+            ]
+        },
+        {
+            "title": "MIPS Registers (that we care about)",
+            "content": [
+                "<strong>$zero: </strong> Hard-wired to 0",
+                "<strong>$v0, $v1:  </strong> Return values from functions",
+                "<strong>$a0 - $a3:  </strong> Arguments to functions - not preserved by subprograms",
+                "<strong>$t0 - $t9:  </strong> Temporary data, not preserved by subprograms",
+                "<strong>$s0 - $s7:  </strong> Saved registers, preserved by subprograms",
+                "<strong>$sp:  </strong> Stack Pointer",
+                "<strong>$fp:  </strong> Frame Pointer",
+                "<strong>$ra:  </strong> Return Address"
+            ]
+        },
+        {
+            "title": "MIPS Core Instruction Set",
+            "content": [
+                "<strong>add</strong>",
+                "<strong>addi</strong>",
+                "<strong>addiu</strong>",
+                "<strong>addu</strong>",
+                "<strong>and</strong>",
+                "<strong>andi</strong>",
+                "<strong>beq</strong>",
+                "<strong>bne</strong>",
+                "<strong>j</strong>",
+                "<strong>jal</strong>",
+                "<strong>jr</strong>",
+                "<strong>lw</strong>",
+                "<strong>lui</strong>",
+                "<strong>nor</strong>",
+                "<strong>or</strong>",
+                "<strong>ori</strong>",
+                "<strong>slt</strong>",
+                "<strong>sll</strong>",
+                "<strong>srl</strong>",
+                "<strong>sw</strong>",
+                "<strong>sub</strong>",
+                "<strong>subu</strong>"
+            ]
+        },
+        {
+            "title": "See any problems?",
+            "content": [
+                "Please contact <a href='mailto:eperry1@mymail.mines.edu'>eperry1@mymail.mines.edu</a>."
+            ]
+        }
+    ]
+}

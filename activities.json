@@ -1,0 +1,110 @@
+{
+    "activities": [
+        {
+            "title": "Week 3 Practice Problems",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "question": "<p>What is wrong with the following instruction?</p><code>lw $s0, $t0, 20($t1)</code>",
+                    "answer": "The lw instruction does not take 3 registers. Its format should be lw $s0, 20($t0)."
+                },
+                {
+                    "title": "Question 2",
+                    "question": "<p>How about this one?</p><code>lw $k1, 15($s0)</code>",
+                    "answer": "The k registers are reserved for the OS kernel and should not be tampered with."
+                },
+                {
+                    "title": "Question 3",
+                    "question": "Consider a 32 bit binary number stored in register $s0. Isolate bits 16 through 25 (i.e., keep bits 16 through 25 unchanged, but turn all other bits into zero) in four or less MIPS commands. Please store the result in $s0. Be sure that the bits end up in their original location.",
+                    "answer": "<p>There are multiple possible answers, but here is one of them:</p><code>addi $s1, $s1, 1023<br>srl $s1, $s1, 16<br>and $s0, $s1, $s0<br>sll $s1, $s1, 16<br></code><p>Here's a different approach:</p><code>srl $s1, $s1, 16<br>andi $s0, $s0, 1023<br>sll $s1, $s1, 16<br></code>"
+                },
+                {
+                    "title": "Question 4",
+                    "question": "<p>Translate the following C code statements into as few lines of assembly as possible (assume d is $s3, e is $s4, and Z's base address is in $s7):</p><code>d = e + Z[8];</code>",
+                    "answer": "<code>lw $t0, 32($s7)<br>add $s3, $s4, $t0<br></code>"
+                },
+                {
+                    "title": "Question 5",
+                    "question": "<p>What MIPS instructions correspond with this C arithmetic:</p><code>a = (17 * b) + (c / 2)</code",
+                    "answer": "<code>sll $t0, $s1, 4 <br>add $t0, $t0, $s1 <br>srl $s2, $s2, 1 <br>add $s0, $s1, $s2 <br></code>"
+                },
+                {
+                    "title": "Question 6",
+                    "question": "Isolate bits 22 through 24 (inclusive) using only SLL and SRL.",
+                    "answer": "<code>srl $t0, $t0, 22    <br>sll $t0, $t0, 29    <br>srl $t0, $t0, 7    <br></code>"
+                },
+                {
+                    "title": "Question 7",
+                    "question": "Access array position A[13] (assuming base address is in s0).",
+                    "answer": "<code>lw $t0, 52($s0)</code>"
+                },
+                {
+                    "title": "Question 8",
+                    "question": "<p>For what range of values is the following MIPS arithmetic valid (i.e. no overflow, underflow, etc.), assuming that we are working with a signed number.</p><code>sll $s0, $s0, 16</code>",
+                    "answer": "We must have any value which cannot overflow into the most significant bit (which would flip the sign of the number). Therefore, any number which is 32767 (0111 1111 1111 1111) or less will not overflow."
+                }
+            ],
+            "topics": [
+                "MIPS Memory Access",
+                "MIPS Bitwise Instructions"
+            ],
+            "timeframe": "1/26 - 2/2"
+        },
+        {
+            "title": "Week 4 Practice Problems",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "question": "Can unconditional branches compare numbers before branching?",
+                    "answer": "No. Unconditional branches branch to a different section of the program no matter what, and they do not have register operands."
+                },
+                {
+                    "title": "Question 2",
+                    "question": "Can conditional branches branch if x < y?",
+                    "answer": "No. Conditional branches evaluate either == or !=."
+                },
+                {
+                    "title": "Question 3",
+                    "question": "True or false: conditional branches take two register operands and a label to branch to.",
+                    "answer": "This is true."
+                },
+                {
+                    "title": "Question 4",
+                    "question": "<p> What are the MIPS instructions which correspond with this C statement? Assume that $s0 = a, $s1 = b, and $s2 = c. </p> <code>if (a != b) { <br>c = 24;<br>} </code>",
+                    "answer": "<p> Here is a possible approach: </p> <code>beq $s0, $s1, Branch <br>addi $s2, $zero, 24 <br>Branch:  </code> <p>And the reason it is a beq and not bne is that this is the only particular case where the c = 24 will not be evaluated. </p>"
+                },
+                {
+                    "title": "Question 5",
+                    "question": "<p> What is the issue with the below MIPS code? </p><code>addi $s0, $zero, 0 <br> Loop: <br> addi $s0, $s0, 1 <br> beq $s0, $zero, Exit <br>j Loop <br>Exit:  </code>",
+                    "answer": "The problem is that this code will never actually exit the Loop (that is until $s0 eventually overflows, but that is not the desired behavior)."
+                },
+                {
+                    "title": "Question 6",
+                    "question": "Transfer the MIPS code from the previous statement into C code.",
+                    "answer": "<p>This type of loop could almost be compared to a failed do while loop.</p> <code>int a = 0; <br>do { <br>a++;<br>} while (a != 0);  </code><p>Since the a++ occurs before the comparison, it will continue running infinitely (until overflow, etc.). Sometimes trying to translate a MIPS statement into C will help illuminate errors you can not immediately see.</p>                    "
+                },
+                {
+                    "title": "Question 7",
+                    "question": "<p>What is the problem with the below MIPS loop?</p> <code>addi $s1, $zero, 20 <br> Loop: <br>beq $s0, $s1, Exit <br>addi $s1, $s1, 1 <br>Exit:   </code>",
+                    "answer": "There is no unconditional branch which actually forms the loop, so the code exits after one run-through."
+                },
+                {
+                    "title": "Question 8",
+                    "question": "<p>Translate the following C loop into MIPS. Assume that $s0 = a, $s1 = b, and $s2 = c.</p><code>for (int a = 0; a != c; a++) { <br> b = c; <br> }</code>",
+                    "answer": "<p>Here is one possible way:</p><code>add $s0, $zero, $zero <br> Loop: <br> beq $s0, $s2, Exit <br> add $s1, $s2, $zero <br> addi $s0, $s0, 1 <br> Exit: </code>"
+                },
+                {
+                    "title": "Question 8",
+                    "question": "<p> What is the issue with the below MIPS statement? </p> <code># Evaluate if a == c <br> beq #s0, #s2, Equal <br> <br> # Do not equal stuff here <br> addi $s0, $s0, 12 <br> <br> # Do some cool stuff if equal <br>Equal: <br> subi $s0, $s2, 1 <br>sll $s0, $s0, 1  </code>",
+                    "answer": "The equal portion of the code will be executed no matter what because that block of code will eventually execute. We would fix this by adding an unconditional branch to go past the equal code if a and c are not equal."
+                }
+            ],
+            "topics": [
+                "Branching",
+                "Beq & Bne",
+                "Loops"
+            ],
+            "timeframe": "2/2 - 2/9"
+        }
+    ]
+}

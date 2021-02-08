@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/csci341-resources/static/css/main.f95bc569.chunk.css",
+    "main.js": "/csci341-resources/static/js/main.45e3920b.chunk.js",
+    "main.js.map": "/csci341-resources/static/js/main.45e3920b.chunk.js.map",
+    "runtime-main.js": "/csci341-resources/static/js/runtime-main.4de2ea06.js",
+    "runtime-main.js.map": "/csci341-resources/static/js/runtime-main.4de2ea06.js.map",
+    "static/js/2.ade8e687.chunk.js": "/csci341-resources/static/js/2.ade8e687.chunk.js",
+    "static/js/2.ade8e687.chunk.js.map": "/csci341-resources/static/js/2.ade8e687.chunk.js.map",
+    "static/js/3.f6192ec2.chunk.js": "/csci341-resources/static/js/3.f6192ec2.chunk.js",
+    "static/js/3.f6192ec2.chunk.js.map": "/csci341-resources/static/js/3.f6192ec2.chunk.js.map",
+    "index.html": "/csci341-resources/index.html",
+    "static/css/main.f95bc569.chunk.css.map": "/csci341-resources/static/css/main.f95bc569.chunk.css.map",
+    "static/js/2.ade8e687.chunk.js.LICENSE.txt": "/csci341-resources/static/js/2.ade8e687.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/csci341-resources/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4de2ea06.js",
+    "static/js/2.ade8e687.chunk.js",
+    "static/css/main.f95bc569.chunk.css",
+    "static/js/main.45e3920b.chunk.js"
+  ]
+}
