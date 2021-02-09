@@ -91,10 +91,10 @@
                 {
                     "title": "Question 8",
                     "question": "<p>Translate the following C loop into MIPS. Assume that $s0 = a, $s1 = b, and $s2 = c.</p><code>for (int a = 0; a != c; a++) { <br> b = c; <br> }</code>",
-                    "answer": "<p>Here is one possible way:</p><code>add $s0, $zero, $zero <br> Loop: <br> beq $s0, $s2, Exit <br> add $s1, $s2, $zero <br> addi $s0, $s0, 1 <br> Exit: </code>"
+                    "answer": "<p>Here is one possible way:</p><code>add $s0, $zero, $zero <br> Loop: <br> beq $s0, $s2, Exit <br> add $s1, $s2, $zero <br> addi $s0, $s0, 1 <br> j Loop <br> Exit: </code>"
                 },
                 {
-                    "title": "Question 8",
+                    "title": "Question 9",
                     "question": "<p> What is the issue with the below MIPS statement? </p> <code># Evaluate if a == c <br> beq #s0, #s2, Equal <br> <br> # Do not equal stuff here <br> addi $s0, $s0, 12 <br> <br> # Do some cool stuff if equal <br>Equal: <br> subi $s0, $s2, 1 <br>sll $s0, $s0, 1  </code>",
                     "answer": "The equal portion of the code will be executed no matter what because that block of code will eventually execute. We would fix this by adding an unconditional branch to go past the equal code if a and c are not equal."
                 }
