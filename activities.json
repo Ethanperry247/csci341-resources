@@ -105,6 +105,75 @@
                 "Loops"
             ],
             "timeframe": "2/2 - 2/9"
+        },
+        {
+            "title": "Quiz 5 Practice Problems",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "question": "What is unique about the jal function (i.e. what makes it different from the jump instruction)?",
+                    "answer": "The jal function sets the $ra and jumps to the procedure, while j (jump) will just unconditional branch and do nothing else."
+                },
+                {
+                    "title": "Question 2",
+                    "question": "What does the jal function set the $ra register to?",
+                    "answer": "It sets the $ra to the instruction (word) following the function call (PC+4)."
+                },
+                {
+                    "title": "Question 3",
+                    "question": "Why are some registers assumed to be preserved across function calls?",
+                    "answer": "This is particularly important because it can help prevent fatal register overwrites. For example, if the main program is using register $s0 to hold an important user stored value, and function A overwrites it, then that will be lost when control is returned to main."
+                },
+                {
+                    "title": "Question 4",
+                    "question": "If you need to “spill” registers in a function in order to leverage additional registers, which ones would you be spilling?",
+                    "answer": "The $s0-$s7 registers would be spilled to the stack as needed."
+                },
+                {
+                    "title": "Question 5",
+                    "question": "What does this spill look like (in MIPS)?",
+                    "answer": "<p>Here is an example of “spilling” $s0.</p><code>addi $sp, $sp, -4<br>sw $s0, 0($sp)<br># Manipulating s0 here...<br>lw $s0, 0($sp) # Restore s0.<br>addi $sp, $sp, 4 # Make sure to readjust $sp in the end.</code>"
+                },
+                {
+                    "title": "Question 6",
+                    "question": "Which registers are not preserved across function calls?",
+                    "answer": "$t0-$t9, $v0-$v1, $a0-$a3, and the $ra may have to be saved in the case of a nested function (it is a bit of a special case)."
+                },
+                {
+                    "title": "Question 7",
+                    "question": "Which way does the stack grow?",
+                    "answer": "The stack is said to grow downward, but what this means is that its indexing starts high and is slowly decremented as more items are inserted. Remember that the stack is a LIFO structure as we learned in data structures, so functions should not be messing with the stack anywhere above the stack pointer."
+                },
+                {
+                    "title": "Question 8",
+                    "question": "Why shouldn’t procedures have the ability to change the stack above the current stack pointer?",
+                    "answer": "This would be a mistake because that memory was not stored by the procedure (callee), but rather by some higher level caller which will likely need the memory it has saved to the stack."
+                },
+                {
+                    "title": "Question 9",
+                    "question": "Why is it so important to “release” memory from the stack once you are finished with it?",
+                    "answer": "Take the example where a silly procedure decides to allocate memory to the stack and alter the stack pointer but not change the stack pointer back after it is done. The caller program then retrieves the two elements it saved to the stack before it called the procedure. It got the wrong items back!!"
+                },
+                {
+                    "title": "Question 10",
+                    "question": "When memory is “released” from the stack, do those memory locations get set back to the value of 0?",
+                    "answer": "No, they do not. They will stay whatever values they were, and this means we must be especially careful! The same goes for registers — they will never get set back to zero unless you specify them to do so."
+                },
+                {
+                    "title": "Question 11",
+                    "question": "Give an example of an arbitrary function call whose function uses both the $t0 and $s0 registers. You can assume that both the $t0 and $s0 registers are important to the main function.",
+                    "answer": "<code>addi $sp, $sp, -4<br>sw $t0, 0($sp)<br>jal function<br>lw $t0, 0($sp)<br>addi $sp, $sp, 4<br># End the program.<br>function:<br>&emsp;addi $sp, $sp, -4<br>&emsp;sw $s0, 0($sp)<br>&emsp;addi $s0, $zero, 20<br>&emsp;# more arbitrary stuff...<br>&emsp;lw $s0, 0($sp)<br>&emsp;addi $sp, $sp, 4<br>&emsp;jr $ra<br></code>"
+                },
+                {
+                    "title": "Question 12",
+                    "question": "<p>What is wrong with the below function call?</p><code>addi $s0, $s0, 5 # Some really important s0 stuff.<br>jal function<br>function:<br>&emsp;addi $sp, $sp, -4<br>&emsp;sw $t0, 0($sp)<br>&emsp;andi $s0, $s0, 0<br>&emsp;jr $ra<br></code>",
+                    "answer": "There are multiple problems here! For one, the $sp is never readjusted at the end of the function. Additionally, function saved $t0, which it didn’t need to, and it should have saved $s0 instead since it changed $s0 (and the main program didn’t expect that!). One other thing to always look out for is that after jal function, the program runs into function again, and since $ra hasn’t changed, this function may loop forever."
+                }
+            ],
+            "topics": [
+                "MIPS Procedure Calls and Conventions"
+            ],
+            "timeframe": "2/11-2/18"
         }
     ]
 }
