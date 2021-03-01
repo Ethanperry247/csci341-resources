@@ -174,6 +174,55 @@
                 "MIPS Procedure Calls and Conventions"
             ],
             "timeframe": "2/11-2/18"
+        },
+        {
+            "title": "Quiz 6 Practice Problems",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "question": "Please describe what bits 16 through 20 of an I type instruction are used for.",
+                    "answer": "Bits 16 through 20 represent the rt field of the instruction. More specifically, the rt field is the destination register in many I type instructions, but may also be used for comparison in the case of a BNE or BEQ instruction. In general, please be able to describe what each of the fields of I, R, and J type instructions are for. Remember that the ISA designers have included everything for a reason!"
+                },
+                {
+                    "title": "Question 2",
+                    "question": "What is the purpose of the address field of j type instructions? Alsom, how many bits is it?",
+                    "answer": "The address field in a j type instruction is bits 0 through 25, representing 26 total bits. This field is used in calculating the new PC using pseudo-direct addressing after the execution of the jump command."
+                },
+                {
+                    "title": "Question 3",
+                    "question": "How is the new PC calculated when executing a branch during a BEQ or BNE instruction?",
+                    "answer": "When it is time to branch according to one of these two instructions, PC-relative addressing comes into play. This PC relative addressing calculates the new PC as the sum of the current PC (plus four) and a constant provided in the immediate field. While we use a label in this field, the assembler actually converts the label into a 16-bit hex number before executing the program."
+                },
+                {
+                    "title": "Question 4",
+                    "question": "Explain the difference between pseudo-direct addressing and base addressing.",
+                    "answer": "Pseudo-direct addressing is used in the case of a j type instruction and works with a 26-bit jump field, while base addressing (usually a PC-relative addressing in the case of BNE and BEQ) works with a 16-bit immediate number."
+                },
+                {
+                    "title": "Question 5",
+                    "question": "Is jr a j-type instruction? Explain why it is (or isn’t).",
+                    "answer": " Jr is not a j-type instruction, and it is not an i-type either. It can simply be an R-type instruction since it needs just one operand — the register which holds the jump address (typically the $ra)."
+                },
+                {
+                    "title": "Question 6",
+                    "question": "Are the rs, rt, and rd fields always used in an R-type instruction?",
+                    "answer": "Nope! Though they are often all used, there are some instructions which only use one of the three (jr) and some which only use two (sll, srl)."
+                },
+                {
+                    "title": "Question 7",
+                    "question": "Why don’t we see immediate addressing in MIPS?",
+                    "answer": "We are able to significantly extend our branching range through the use of base/PC-relative addressing as compared to only using the immediate."
+                },
+                {
+                    "title": "Question 8",
+                    "question": "Explain sign extension vs zero extension for immediates.",
+                    "answer": "Sign extension will take the MSB of the provided 16-bit number and use it to pad the upper 16-bits of a new 32-bit number. Zero extension will glue 16 0’s as the upper 16-bits of a new 32-bit number. So the sign extended 16-bit number 0xFFFF would end up as 0xFFFFFFFF, whereas the zero extended 16-bit number would end up as 0x0000FFFF. You will see on the MIPS green card that there are some immediate instructions which use sign extension and some which use zero extension."
+                }
+            ],
+            "topics": [
+                "MIPS Instruction Formats"
+            ],
+            "timeframe": "2/18 - 2/26"
         }
     ]
 }
