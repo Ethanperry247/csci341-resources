@@ -223,6 +223,45 @@
                 "MIPS Instruction Formats"
             ],
             "timeframe": "2/18 - 2/26"
-        }
+        },
+        {
+            "title": "Week 3 Practice Problems",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "question": "<p>Multiplication can be optimized in hardware by (choose all that apply):<br>(a) putting the multiplier in the unused part of the product register<br>(b) recognizing that only 32 bits of the product change with each step<br>(c) using subtraction to check if the result has overflow<br>(d) adding registers to hold overflow bits<br></p>",
+                    "answer": "<p>(a) putting the multiplier in the unused part of the product register<br>(b) recognizing that only 32 bits of the product change with each step</p>"
+                },
+                {
+                    "title": "Question 2",
+                    "question": "<p>If we are sure that a MIPS multiplication result fits in 32 bits, which of these operations will perform the multiplication and put the result in $s0?<br></p><code>(a) mult $s0, $s1, $s2<br>(b) mult $s1, $s2<br>mfhi $s0<br>(c) mult $s1, $s2<br>mflo $s0<br>(d) mul $s1, $s2<br>mflo $s0<br></code>",
+                    "answer": "<code>(c) mult $s1, $s2<br>mflo $s0</code>"
+                },
+                {
+                    "title": "Question 3",
+                    "question": "<p>Which of the following statements is true about version 3 of the division process?(a) Division can stop as soon as the subtraction results in a zero<br>(b) For a non-zero division, it is always necessary to have 32 iterations of the loop<br>(c) The quotient will be in the left half of the remainder register when division completes<br>(d) The remainder will be negative when the algorithm completes.<br></p>",
+                    "answer": "(b) For a non-zero division, it is always necessary to have 32 iterations of the loop"
+                },
+                {
+                    "title": "Question 4",
+                    "question": "<p>Which field has to be shifted right one bit upon completion of the division? <br>(a) divisor<br>(b) right half of remainder register<br>(c) left half of remainder register<br>(d) entire remainder register<br></p>",
+                    "answer": "(c) left half of remainder register"
+                },
+                {
+                    "title": "Question 5",
+                    "question": "<p>If I want to add two doubles located in ($f0,$f1) and ($f2,$f3), this instruction will work:</p><code>(a) add.d $f4, $f0, $f2 <br>(b) add.d $f5, $f1, $f3<br>(c) add.d $f5, $f0, $f2<br>(d) add $f4, $f0, $f2<br></code>",
+                    "answer": "<code>(a) add.d $f4, $f0, $f2</code>"
+                },
+                {
+                    "title": "Question 6",
+                    "question": "<p>The following code has the result described below:</p><code>add.s $t0, $f1, $f2</code><p>(a) the two floats are added and the result is put into $t0<br>(b) it will not compile because regular registers can’t be used in float operations<br>(c) the two floats are converted to ints and added<br>(d) impossible to tell without knowing the values in the registers<br></p>",
+                    "answer": "(b) it will not compile because regular registers can’t be used in float operations"
+                },
+            ],
+            "topics": [
+                "Computer Arithmetic"
+            ],
+            "timeframe": "3/07-3/15"
+        },
     ]
 }
