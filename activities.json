@@ -225,7 +225,7 @@
             "timeframe": "2/18 - 2/26"
         },
         {
-            "title": "Week 3 Practice Problems",
+            "title": "Quiz 7 Practice Problems",
             "questions": [
                 {
                     "title": "Question 1",
@@ -256,7 +256,7 @@
                     "title": "Question 6",
                     "question": "<p>The following code has the result described below:</p><code>add.s $t0, $f1, $f2</code><p>(a) the two floats are added and the result is put into $t0<br>(b) it will not compile because regular registers can’t be used in float operations<br>(c) the two floats are converted to ints and added<br>(d) impossible to tell without knowing the values in the registers<br></p>",
                     "answer": "(b) it will not compile because regular registers can’t be used in float operations"
-                },
+                }
             ],
             "topics": [
                 "Computer Arithmetic"
