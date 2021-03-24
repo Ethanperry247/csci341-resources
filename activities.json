@@ -262,6 +262,45 @@
                 "Computer Arithmetic"
             ],
             "timeframe": "3/07-3/15"
+        },
+        {
+            "title": "Quiz 8 Practice Problems",
+            "questions": [
+                {
+                    "title": "Question 1",
+                    "question": "Which building block helps us make a choice between two data items?",
+                    "answer": "Multiplexor."
+                },
+                {
+                    "title": "Question 2",
+                    "question": "What kind of relationship does the execution time of a program have with the instruction count of a program?",
+                    "answer": "It has a linear relationship — increasing one will linearly increase the other."
+                },
+                {
+                    "title": "Question 3",
+                    "question": "Which essential components are used in the fetch phase of the single-cycle data path?",
+                    "answer": "The instruction memory, the PC, and an adder."
+                },
+                {
+                    "title": "Question 4",
+                    "question": "Solve for the CPI of a program which takes 1 second to execute, has 1.5 billion instructions, and has a clock rate of 2 GHz.",
+                    "answer": "Exe Time = CPI * IC / CC. 1 sec = CPI * (1.5*10^9) / (2*10^9), CPI = 1.33"
+                },
+                {
+                    "title": "Question 5",
+                    "question": "What kind of instructions do we need a bit shifter for?",
+                    "answer": "We might need one for a jump and a branch, since they both require 2 zero bits for the JumpAddr and BranchAddr."
+                },
+                {
+                    "title": "Question 6",
+                    "question": "What are the four inputs of the register file? (Not including the control bits). How many bits is each input and why?",
+                    "answer": "There are three inputs of 5-bit width, and one of 32-bit width. Two of the 5-bits are the register numbers we are hoping to read data from, while the other 5-bit input is the one we would like to write to. These would correspond to the rs, rt, and rd fields of an instruction. The 32-bit width “write data” is the data we would be writing to the register addressed by the write register input."
+                }
+            ],
+            "topics": [
+                "Single Cycle Datapath"
+            ],
+            "timeframe": "3/15-3/24"
         }
     ]
 }
